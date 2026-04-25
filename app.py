@@ -10,6 +10,8 @@ def create_app():
     app.config.from_object(Config)
     
     db.init_app(app)
+    from routes.user import user_bp
+    app.registrer_blueprint(user_bp)
     
     
     @app.route('/')
@@ -18,7 +20,6 @@ def create_app():
     
     
     return app;
-    
     
 
 app = create_app()
